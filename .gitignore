@@ -1,6 +1,8 @@
 #generated driver
 fpga.ko
 fpga.mod.c
+driver/.cache.mk
+driver/fpga_driver.o.ur-safe
 #compile intermediate
 *.o
 *.so
