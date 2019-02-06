@@ -26,7 +26,8 @@
 #include <asm/uaccess.h>
 #include "fpga_driver.h"
 
-#include <asm/cacheflush.h>
+//#include <asm/cacheflush.h>
+#include <asm/set_memory.h>
 
 #define DEBUG 1
 
@@ -522,14 +523,14 @@ static int receive(struct boardHandle board, void* data, size_t size, int channe
 // MEMORY ALLOCATION & HELPER FUNCTIONS
 ///////////////////////////////////////////////////////
 
-/** 
+/**
  * Reads the interrupt vector from the FPGA.
  */
 static inline unsigned int read_status(struct boardHandle board) {
 	return read_register(board, STA_REG);
 }
 
-/** 
+/**
  * Clears the interrupt register in the FPGA.
  */
 static inline void clear_interrupt_vector(struct boardHandle board, unsigned int vect) {
